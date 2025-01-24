@@ -85,7 +85,7 @@ James,80
 ```java
 public static void main(String[] args) {
     String inputFile = "input.csv";
-    String outputFile = "output.csv";
+    String outputFile = "output.txt";
 
     App.sum(inputFile, outputFile);
     System.out.println("Processing complete. Check the output file: " + outputFile);
