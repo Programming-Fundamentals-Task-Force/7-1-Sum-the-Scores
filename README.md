@@ -1,4 +1,4 @@
-# Assignment 7-2: Sum the Scores
+# Assignment 7-1: Sum the Scores
 
 Name:
 
