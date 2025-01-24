@@ -23,7 +23,7 @@ Your solution should dynamically handle input files with varying numbers of scor
 
 - **WARNING:** Do not modify the `.github` or `gradle-tests` directories. These directories are essential for the automated grading process, and any changes may result in incorrect grading.
 
-- You will need to create a new Maven project in this assignment. Refer to the provided "Maven Basics" document for instructions. The project name (_artifact ID_) should be `lab72`.
+- You will need to create a new Maven project in this assignment. Refer to the provided "Maven Basics" document for instructions. The project name (_artifact ID_) should be `lab71`.
 - Once the project is created, you will need to implement all the required classes and methods according to the specifications.
 - To compile your program, execute `mvn compile`. To run the compiled program, execute `java -cp target/classes com.lab.App` or `mvn exec:java "-Dexec.mainClass=com.lab.App"`.
 
