@@ -30,42 +30,58 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
-    - name: Console output
-      id: console-output
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Console output
-        setup-command: mvn compile -f ${{ env.PROJECT_DIR }}/pom.xml
-        command: mvn exec:java -Dexec.mainClass="com.lab.App" --quiet -f ${{ env.PROJECT_DIR }}/pom.xml
-        input: ''
-        expected-output: |-
-          Hello, world!
-        comparison-method: exact
-        timeout: 10
-        max-score: 20
-    - name: Unit test 1
+    - name: sum_the_scores_in_input1
       id: unit-test-1
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Unit test 1
+        test-name: sum_the_scores_in_input1
         setup-command: ''
-        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.testOutput -p gradle-tests"
+        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.sum_the_scores_in_input1 -p gradle-tests"
         timeout: 10
-        max-score: 40
-    - name: Unit test 2
+        max-score: 20
+    - name: sum_the_scores_in_input2
       id: unit-test-2
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Unit test 2
+        test-name: sum_the_scores_in_input2
         setup-command: ''
-        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.testEquality -p gradle-tests"
+        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.sum_the_scores_in_input2 -p gradle-tests"
         timeout: 10
-        max-score: 40
+        max-score: 20
+    - name: throws_ioexception_when_input_file_not_found
+      id: unit-test-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: throws_ioexception_when_input_file_not_found
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.throws_ioexception_when_input_file_not_found -p gradle-tests"
+        timeout: 10
+        max-score: 20
+    - name: throws_ioexception_when_output_file_not_writable
+      id: unit-test-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: throws_ioexception_when_output_file_not_writable
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.throws_ioexception_when_output_file_not_writable -p gradle-tests"
+        timeout: 10
+        max-score: 20
+    - name: throws_ioexception_when_input_file_is_empty
+      id: unit-test-5
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: throws_ioexception_when_input_file_is_empty
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.throws_ioexception_when_input_file_is_empty -p gradle-tests"
+        timeout: 10
+        max-score: 20
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        CONSOLE-OUTPUT_RESULTS: "${{ steps.console-output.outputs.result }}"
         UNIT-TEST-1_RESULTS: "${{ steps.unit-test-1.outputs.result }}"
         UNIT-TEST-2_RESULTS: "${{ steps.unit-test-2.outputs.result }}"
+        UNIT-TEST-3_RESULTS: "${{ steps.unit-test-3.outputs.result }}"
+        UNIT-TEST-4_RESULTS: "${{ steps.unit-test-4.outputs.result }}"
+        UNIT-TEST-5_RESULTS: "${{ steps.unit-test-5.outputs.result }}"
       with:
-        runners: console-output,unit-test-1,unit-test-2
+        runners: unit-test-1,unit-test-2,unit-test-3,unit-test-4,unit-test-5
