@@ -33,7 +33,7 @@ Your solution should dynamically handle input files with varying numbers of scor
 
 - `App` class:
   - Implement a static method:
-    - `public static void sum(String inputFilename, String outputFilename)`
+    - `public static void sum(String inputFilename, String outputFilename) throws IOException`
       - Input Parameters:
         - `inputFilename`: The name or path of the input CSV file.
         - `outputFilename`: The name or path of the output file.
@@ -43,6 +43,7 @@ Your solution should dynamically handle input files with varying numbers of scor
         - Write the name and total score for each row to the output file.
       - Throw an exception:
         - Throw `IOException` if any issues occur during file operations (e.g., input file not found, unreadable, invalid file format, or output file cannot be written).
+        - Note the method signature (`throws IOException` after the parameter list). This is required to indicate that `sum()` might throw an `IOException`.
 - Main method (optional):
   - Optionally include a `main(String[] args)` method in the `App` class to test the `sum()` method.
 
@@ -83,7 +84,7 @@ James,80
 
 ### Example Usage
 ```java
-public static void main(String[] args) {
+public static void main(String[] args) throws IOException {
     String inputFile = "input.csv";
     String outputFile = "output.txt";
 
