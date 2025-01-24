@@ -15,9 +15,7 @@ The input file is in CSV format and contains:
 - A header row with column names: `name,score1,score2,...,scoreN`, where the number of score columns (`N`) can vary.
 - Subsequent rows with a name followed by the same number of integer scores for every line.
 
-The output file should:
-
-- Contain one row per name, with the name and the total of their scores, separated by a comma.
+The output file should contain one row per name, with the name and the total of their scores, separated by a comma.
 
 Your solution should dynamically handle input files with varying numbers of scores per row.
 
@@ -85,14 +83,12 @@ James,80
 
 ### Example Usage
 ```java
-public class App {
-    public static void main(String[] args) {
-        String inputFile = "input.csv";
-        String outputFile = "output.csv";
+public static void main(String[] args) {
+    String inputFile = "input.csv";
+    String outputFile = "output.csv";
 
-        App.sum(inputFile, outputFile);
-        System.out.println("Processing complete. Check the output file: " + outputFile);
-    }
+    App.sum(inputFile, outputFile);
+    System.out.println("Processing complete. Check the output file: " + outputFile);
 }
 ```
 
